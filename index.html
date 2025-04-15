@@ -1,244 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Atharva Joshi | Data Scientist Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <title>Atharva Joshi | Portfolio</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" />
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0a0f1a;
-      color: #e0e6ed;
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    a { color: #e0c097; text-decoration: none; }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f0f0f;
+      color: #e8decf;
+      line-height: 1.6;
+    }
+    a {
+      color: #d2b48c;
+      text-decoration: none;
+    }
     header {
-      background-color: #121829;
-      padding: 20px 0;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-    nav {
-      width: 90%;
-      margin: auto;
+      background: #1a1a1a;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     .logo {
-      font-size: 24px;
-      color: #e0c097;
+      font-size: 1.5rem;
       font-weight: bold;
+      color: #e8decf;
     }
     .nav-links {
-      list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 1rem;
+      list-style: none;
     }
     .nav-links a {
-      color: #e0e6ed;
-      font-size: 16px;
-      transition: color 0.3s;
+      font-weight: 500;
     }
-    .nav-links a:hover {
-      color: #e0c097;
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
     }
-    section {
-      padding: 120px 10% 80px;
+    #menu-toggle {
+      display: none;
     }
-    h2 {
-      text-align: center;
-      font-size: 32px;
-      color: #e0c097;
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #1a1a1a;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+      }
+      #menu-toggle:checked + .hamburger + .nav-links {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+        color: #e8decf;
+      }
     }
-    h2::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: #e0c097;
-      margin: 10px auto 0;
+
+    #hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
     }
-    .content-box {
-      max-width: 1000px;
-      margin: auto;
-      font-size: 18px;
-      line-height: 1.7;
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1rem;
+      box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+    }
+    .intro {
+      max-width: 600px;
+      padding: 1rem;
+    }
+    .intro h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      color: #f5e8d7;
     }
     .btn {
       display: inline-block;
-      padding: 10px 25px;
-      background-color: #e0c097;
-      color: #0a0f1a;
-      border-radius: 5px;
+      margin-top: 1rem;
+      padding: 0.5rem 1.5rem;
+      background: #d2b48c;
+      color: #111;
+      border-radius: 6px;
       font-weight: bold;
     }
-    .btn:hover {
-      background-color: #cfa56b;
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      color: #f5e8d7;
+      margin-bottom: 1.5rem;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
     }
-    .skill-item {
-      display: flex;
-      align-items: center;
-      background-color: #121829;
-      padding: 12px 18px;
+    .skill {
+      text-align: center;
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .skill img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
+      transition: transform 0.3s;
+    }
+    .skill:hover img {
+      transform: scale(1.2);
+    }
+
+    .project, .experience-item, .certification, .education-item {
+      background: #1a1a1a;
+      padding: 1rem;
       border-radius: 8px;
-      gap: 15px;
+      margin-bottom: 1rem;
     }
-    .skill-item img {
-      width: 28px;
-      height: 28px;
+
+    #contact p {
+      margin: 0.5rem 0;
     }
-    .skill-item span {
-      font-size: 16px;
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1a1a1a;
+      font-size: 0.9rem;
     }
   </style>
 </head>
+
 <body>
+
   <header>
-    <nav>
-      <div class="logo">Atharva Joshi</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="logo">Atharva Joshi</div>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </header>
 
-  <section id="about" data-aos="fade-up">
+  <section id="hero">
+    <img src="atharva.jpg" alt="Atharva Joshi" class="profile-img"/>
+    <div class="intro">
+      <h1>Atharva Joshi</h1>
+      <p>Data Scientist | ML Engineer | AI & Embedded Systems Enthusiast | Turning ideas into impact.</p>
+      <div class="social-links">
+        <a href="mailto:atharva@example.com">Email</a> |
+        <a href="https://github.com/atharvajoshi01" target="_blank">GitHub</a> |
+        <a href="https://linkedin.com/in/atharvajoshi01" target="_blank">LinkedIn</a>
+      </div>
+      <a href="resume.pdf" class="btn" download>Download Resume</a>
+    </div>
+  </section>
+
+  <section id="about">
     <h2>About Me</h2>
-    <div class="content-box">
-      <p>Hello! I’m <strong>Atharva Joshi</strong>, a data science enthusiast currently pursuing an MS in Data Science at SUNY Buffalo. My passion lies in leveraging Machine Learning, MLOps, and AI to build innovative, real-world solutions across domains like traffic automation, chatbot development, and energy optimization.</p>
-      <p>I specialize in bridging the gap between data science and engineering, creating robust pipelines, deploying intelligent models, and enhancing efficiency. I'm also a team leader, open-source contributor, and chess player who brings analytical rigor and collaboration to every project.</p>
-      <p>📍 Based in New York | 📧 <a href="mailto:ajoshi35@buffalo.edu">ajoshi35@buffalo.edu</a></p>
-    </div>
+    <p>I’m Atharva, a passionate tech enthusiast with a solid background in machine learning, data science, and robotics. I love building innovative solutions that bridge the gap between data and real-world impact. I thrive in collaborative environments where problem-solving and continuous learning are at the core.</p>
   </section>
 
-  <section id="resume" data-aos="fade-up">
-    <h2>Resume</h2>
-    <div class="content-box">
-      <a href="Atharva Resume.pdf" class="btn" download>Download Resume (PDF)</a>
-    </div>
-  </section>
-
-  <section id="skills" data-aos="fade-up">
+  <section id="skills">
     <h2>Skills</h2>
     <div class="skills-grid">
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/><span>Python</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg"/><span>R</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"/><span>MySQL</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"/><span>PostgreSQL</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"/><span>TensorFlow</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg"/><span>PyTorch</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/><span>Docker</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg"/><span>AWS</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"/><span>Linux</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"/><span>Git</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"/><span>GitHub</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tableau/tableau-original.svg"/><span>Tableau</span></div>
-      <div class="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/><span>JavaScript</span></div>
+      <div class="skill"><img src="logos/python.png" alt="Python">Python</div>
+      <div class="skill"><img src="logos/sql.png" alt="SQL">SQL</div>
+      <div class="skill"><img src="logos/aws.png" alt="AWS">AWS</div>
+      <div class="skill"><img src="logos/docker.png" alt="Docker">Docker</div>
+      <div class="skill"><img src="logos/pytorch.png" alt="PyTorch">PyTorch</div>
+      <div class="skill"><img src="logos/git.png" alt="Git">Git</div>
+      <div class="skill"><img src="logos/linux.png" alt="Linux">Linux</div>
+      <div class="skill"><img src="logos/flask.png" alt="Flask">Flask</div>
     </div>
   </section>
-  <section id="projects" data-aos="fade-up">
+
+  <section id="projects">
     <h2>Projects</h2>
-    <div class="content-box">
-      <h3>Landmark Classification & Tagging</h3>
-      <ul>
-        <li>Built a deep learning model to classify landmarks using CNNs and transfer learning</li>
-        <li>Improved test accuracy by 22%, reduced loss to 1.01</li>
-        <li>Tools: Python, TensorFlow, CNN</li>
-      </ul>
-      <h3>LSTM Chatbot</h3>
-      <ul>
-        <li>Developed an NLP-based chatbot using LSTM + Seq2Seq architecture with attention</li>
-        <li>Reduced loss to 0.689 and improved response relevance by 12%</li>
-        <li>Tools: Python, NLP, RNN, LSTM</li>
-      </ul>
+    <div class="project">
+      <h3>Autonomous Robot Arm</h3>
+      <p>Designed a robotic arm using ML, ROS, Arduino, and Python for real-time object manipulation. Focused on efficient control algorithms and sensor fusion.</p>
+      <a href="https://github.com/atharvajoshi01/robot-arm" target="_blank">View GitHub</a>
+    </div>
+    <div class="project">
+      <h3>Predictive Maintenance</h3>
+      <p>Built ML models to predict failures in industrial machinery. Deployed using Flask and visualized with PowerBI dashboards.</p>
     </div>
   </section>
 
-  <section id="experience" data-aos="fade-up">
+  <section id="experience">
     <h2>Experience</h2>
-    <div class="content-box">
-      <h3>Rucha Yantra LLP – R&D Intern</h3>
-      <p>Feb 2023 – Feb 2024</p>
-      <ul>
-        <li>Created AI-based robotic welding system with 98% accuracy</li>
-        <li>Built traffic control system using YOLOv8 & Jetson Nano</li>
-      </ul>
-      <h3>Chandra Engineering – Data Science Intern</h3>
-      <p>Mar 2021 – Sep 2021</p>
-      <ul>
-        <li>Reduced manufacturing downtime by 20% using predictive analytics</li>
-        <li>Developed dashboards and forecasting models</li>
-      </ul>
+    <div class="experience-item">
+      <h3>AI Intern @ Rucha Yantra LLP</h3>
+      <p>Implemented AI algorithms in real-time autonomous vehicles. Contributed to design, testing, and optimization phases across robotics pipeline.</p>
+    </div>
+    <div class="experience-item">
+      <h3>ML Intern @ Chandra Engineering</h3>
+      <p>Developed embedded ML models for predictive analytics on industrial systems. Integrated AWS IoT, Python APIs, and Docker environments.</p>
     </div>
   </section>
 
-  <section id="education" data-aos="fade-up">
+  <section id="education">
     <h2>Education</h2>
-    <div class="content-box">
-      <p><strong>MS in Data Science</strong><br>SUNY Buffalo, USA (2024–2025)<br>GPA: 3.83/4.0</p>
-      <p><strong>B.Tech in Electronics & Telecommunication</strong><br>JNEC, Aurangabad (2019–2023)<br>GPA: 3.8/4.0</p>
+    <div class="education-item">
+      <h3>B.E. Electronics & Telecommunication Engineering</h3>
+      <p>Savitribai Phule Pune University</p>
+      <p>Graduated: 2024</p>
     </div>
   </section>
 
-  <section id="certifications" data-aos="fade-up">
+  <section id="certifications">
     <h2>Certifications</h2>
-    <div class="content-box">
-      <ul>
-        <li>Deep Learning Nanodegree – Udacity</li>
-        <li>Data Science Specialization – Coursera</li>
-        <li>AWS Cloud Practitioner, MLflow</li>
-      </ul>
+    <div class="certification">
+      <h3>AWS Certified Cloud Practitioner</h3>
+      <p>Amazon Web Services</p>
+    </div>
+    <div class="certification">
+      <h3>Deep Learning Specialization</h3>
+      <p>Coursera (Andrew Ng)</p>
     </div>
   </section>
 
-  <section id="achievements" data-aos="fade-up">
-    <h2>Achievements</h2>
-    <div class="content-box">
-      <ul>
-        <li>National Chess Player (FIDE)</li>
-        <li>TEDx Budget Team Lead</li>
-        <li>Student Leader – Campus Dining, UB</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact" data-aos="fade-up">
+  <section id="contact">
     <h2>Contact</h2>
-    <div class="content-box">
-      <p><strong>Email:</strong> <a href="mailto:ajoshi35@buffalo.edu">ajoshi35@buffalo.edu</a></p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/atharvajoshi01" target="_blank">linkedin.com/in/atharvajoshi01</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/atharvajoshi01" target="_blank">github.com/atharvajoshi01</a></p>
-    </div>
+    <p>Email: <a href="mailto:atharva@example.com">atharva@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/atharvajoshi01" target="_blank">atharvajoshi01</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/atharvajoshi01" target="_blank">atharvajoshi01</a></p>
   </section>
 
   <footer>
-    <p>© 2025 Atharva Joshi | Crafted with purpose and precision</p>
+    <p>© 2025 Atharva Joshi. All rights reserved.</p>
   </footer>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
 </body>
 </html>
 
