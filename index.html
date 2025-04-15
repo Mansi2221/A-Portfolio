@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atharva Joshi | Data Scientist Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0f1a;
+      color: #e0e6ed;
+      scroll-behavior: smooth;
+    }
+    a { color: #e0c097; text-decoration: none; }
+    header {
+      background-color: #121829;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      color: #e0c097;
+      font-weight: bold;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #e0e6ed;
+      font-size: 16px;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: #e0c097;
+    }
+    section {
+      padding: 120px 10% 80px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #e0c097;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: #e0c097;
+      margin: 10px auto 0;
+    }
+    .content-box {
+      max-width: 1000px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    ul { margin: 10px 0 20px 20px; }
+    .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: #e0c097;
+      color: #0a0f1a;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background-color: #cfa56b;
+    }
+    footer {
+      background-color: #121829;
+      color: #e0e6ed;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        background: #121829;
+        position: absolute;
+        top: 60px;
+        width: 100%;
+        left: 0;
+      }
+      .nav-links.active { display: flex; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Atharva Joshi</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <div class="content-box">
+      <p>Hello! I’m <strong>Atharva Joshi</strong>, a data science enthusiast currently pursuing an MS in Data Science at SUNY Buffalo. My passion lies in leveraging Machine Learning, MLOps, and AI to build innovative, real-world solutions across domains like traffic automation, chatbot development, and energy optimization.</p>
+      <p>I specialize in bridging the gap between data science and engineering, creating robust pipelines, deploying intelligent models, and enhancing efficiency. I'm also a team leader, open-source contributor, and chess player who brings analytical rigor and collaboration to every project.</p>
+      <p>📍 Based in New York | 📧 <a href="mailto:ajoshi35@buffalo.edu">ajoshi35@buffalo.edu</a></p>
+    </div>
+  </section>
+
+  <section id="resume" data-aos="fade-up">
+    <h2>Resume</h2>
+    <div class="content-box">
+      <a href="Atharva Resume.pdf" class="btn" download>Download Resume (PDF)</a>
+    </div>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills</h2>
+    <div class="content-box">
+      <p><strong>Languages:</strong> Python, R, SQL</p>
+      <p><strong>Frameworks & Tools:</strong> TensorFlow, PyTorch, Keras, Hugging Face, AWS, Docker, MLflow, Terraform</p>
+      <p><strong>Databases:</strong> MySQL, PostgreSQL, BigQuery, Snowflake, Databricks</p>
+      <p><strong>Other:</strong> Git, Tableau, Power BI, Linux, Jupyter, Colab</p>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="content-box">
+      <h3>Landmark Classification & Tagging (CNN)</h3>
+      <ul>
+        <li>Enhanced accuracy by 22% using transfer learning & fine-tuning</li>
+        <li>Reduced test loss to 1.01 and improved tagging for 1K+ users</li>
+        <li>Tools: Python, CNN, Transfer Learning</li>
+      </ul>
+      <h3>LSTM Chatbot (RNN)</h3>
+      <ul>
+        <li>Built a conversational Seq2Seq chatbot with reduced loss to 0.689</li>
+        <li>Implemented attention mechanisms for coherence improvement (↑12%)</li>
+        <li>Tools: Python, RNN, NLP, Hyperparameter Tuning</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="experience" data-aos="fade-up">
+    <h2>Experience</h2>
+    <div class="content-box">
+      <h3>Rucha Yantra LLP – R&D Intern (Feb 2023 – Feb 2024)</h3>
+      <ul>
+        <li>Created automated welding system (98% precision) saving human hours</li>
+        <li>Built traffic management system using YOLOv8 + Jetson Nano</li>
+        <li>Developed ML-based real-time analytics pipelines for automotive clients</li>
+      </ul>
+      <h3>Chandra Engineering – Data Science Intern (Mar 2021 – Sep 2021)</h3>
+      <ul>
+        <li>Built predictive models cutting equipment downtime by 20%</li>
+        <li>Developed forecasting and energy optimization pipelines using Python + SQL</li>
+        <li>Created over 15+ custom dashboards for business reporting</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education" data-aos="fade-up">
+    <h2>Education</h2>
+    <div class="content-box">
+      <p><strong>MS in Data Science</strong><br/>State University of New York at Buffalo (2024–2025)<br/>GPA: 3.83/4.0</p>
+      <p><strong>B.Tech in Electronics & Telecommunication</strong><br/>JNEC, Aurangabad (2019–2023)<br/>GPA: 3.8/4.0</p>
+    </div>
+  </section>
+
+  <section id="certifications" data-aos="fade-up">
+    <h2>Certifications</h2>
+    <div class="content-box">
+      <ul>
+        <li>Deep Learning Nanodegree – Udacity</li>
+        <li>Data Science Specialization – Coursera</li>
+        <li>AWS Cloud Practitioner | MLflow | GitOps</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="achievements" data-aos="fade-up">
+    <h2>Achievements</h2>
+    <div class="content-box">
+      <ul>
+        <li>National Chess Player (FIDE)</li>
+        <li>TEDx Volunteer – Budget Management Head</li>
+        <li>Campus Dining Services Student Leader (SUNY Buffalo)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <div class="content-box">
+      <p><strong>Email:</strong> <a href="mailto:ajoshi35@buffalo.edu">ajoshi35@buffalo.edu</a></p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/atharvajoshi01" target="_blank">linkedin.com/in/atharvajoshi01</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/atharvajoshi01" target="_blank">github.com/atharvajoshi01</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Atharva Joshi | Crafted with purpose and precision</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
